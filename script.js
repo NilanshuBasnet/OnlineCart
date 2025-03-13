@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="product-name">${product.name}</p>
                     <p class="product-origin">${product.shop}</p>
                 </div>
-                <button data-id=${product.id} class="addItem-btn">Add Item</button>
+                <button data-id=${product.id} class="addItem-btn">Add to Cart</button>
         `
         productList.appendChild(productDiv);
     });
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cart.push(product);
         renderCard();
 
-    }
+    };
 
     function renderCard(){
         cartItems.innerHTML = "";
@@ -55,7 +55,26 @@ document.addEventListener('DOMContentLoaded', function() {
         if(cart.length > 0){
             emptyCartMessage.classList.add('hidden');
             cartTotal.classList.remove('hidden');
+            
+
+            cart.forEach((item, index) =>{
+                totalPrice += item.price;
+                const cartItem = document.createElement('div');
+                cartItem.innerHTML = `
+                ${item.name} - रु ${item.price.toFixed(2)}
+                `
+                cartItems.appendChild(cartItem);
+            });
+            totalAmount.innerHTML = `रु ${totalPrice.toFixed(2)}`;
         }else{
-            emptyCartMessage.classList.remove('hidden');
-        }};
+            cartTotal.classList.add('hidden');
+            cartItems.innerHTML = `<p id="empty-cart">Your Cart is Empty!</p>`;
+        }
+    };
+
+    checkoutButton.addEventListener('click', function(){
+        alert("Thank you for shopping with us!");
+        cart.length = 0;
+        renderCard();
+    });
 });
