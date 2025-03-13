@@ -7,6 +7,9 @@
     box-sizing: border-box;
 }
 
+
+
+
 body{
     background-color: #eef2ff;
     min-height: 100vh;
@@ -137,6 +140,10 @@ body{
 #total-amount{
     color:#0d9488;
     font-weight: 500;
-};
-
-
+}
+.removebtn{
+    cursor:pointer;
+    color:#E11D48;
+    border: none;
+    background: none;
+}

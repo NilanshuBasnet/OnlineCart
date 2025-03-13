@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     productList.addEventListener('click', function(e) {
         if(e.target.tagName === 'BUTTON'){
-            console.log("Button Clicked!")
+            // console.log("Button Clicked!")
            const productId = parseInt( e.target.getAttribute('data-id'));
                 const product = products.find(product => product.id === productId);
-                console.log(product);
+                // console.log(product);
                 addToCart(product);
         }
     });
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalPrice += item.price;
                 const cartItem = document.createElement('div');
                 cartItem.innerHTML = `
-                ${item.name} - रु ${item.price.toFixed(2)}
+                ${item.name} - रु ${item.price.toFixed(2)} - <button data-id=${item.id} class='removebtn'>Remove</button>
                 `
                 cartItems.appendChild(cartItem);
             });
@@ -72,6 +72,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+
+    cartItems.addEventListener('click', function(e){
+        if(e.target.tagName === 'BUTTON'){
+            const itemIndex = e.target.getAttribute('data-id');
+            console.log("Button Clicked!");
+            const product = products.find(item => item.id === itemIndex);
+            removeItem(product);
+        }
+    });
+
+    function removeItem(product){
+        const index = cart.indexOf(product);
+        cart.splice(index, 1);
+        renderCard();
+    }
     checkoutButton.addEventListener('click', function(){
         alert("Thank you for shopping with us!");
         cart.length = 0;
