@@ -3,6 +3,8 @@
 
 This is a simple Ecommerce Cart Page project built with HTML, CSS, and JavaScript. It showcases a basic functionality of an online shopping cart where users can add products to the cart and view the total price of the items. 
 
+💻 [View Demo](https://nilanshubasnet.github.io/OnlineCart/)
+
 ## Features ✨
 
 - **Display Products:** Products are displayed with their images, name, price, and shop origin. 🛍️
@@ -47,6 +49,7 @@ To run the project locally:
 3. View your cart by checking the "Shopping Cart" section. 🛒
 4. Click on the "Checkout" button to clear your cart and receive a message of thanks. 🎉
  ## Screenshots 📸
+ 
 ![image](https://github.com/user-attachments/assets/1477a622-3c46-40ef-a29f-5aeb802f3ab1)
 ![image](https://github.com/user-attachments/assets/6ffbb325-7fd2-4fff-b492-a4cca1a66e5e)
 
